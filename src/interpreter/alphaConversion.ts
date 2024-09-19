@@ -1,4 +1,4 @@
-import { LambdaExpression, Abstraction, Variable, isVariable, isAbstraction, isApplication } from '../types';
+import { LambdaExpression, Abstraction, Variable, isVariable, isAbstraction, isApplication, isChurchNumeral, isChurchBoolean, isOperator } from '../types';
 
 let uniqueCounter = 0;
 
@@ -32,6 +32,8 @@ function replaceVariable(expr: LambdaExpression, oldVar: Variable, newVar: Varia
       left: replaceVariable(expr.left, oldVar, newVar),
       right: replaceVariable(expr.right, oldVar, newVar),
     };
+  } else if (isChurchNumeral(expr) || isChurchBoolean(expr) || isOperator(expr)) {
+    return expr; // These types don't contain variables, so we return them as-is
   }
-  throw new Error('Invalid LambdaExpression');
+  throw new Error(`Invalid LambdaExpression in alphaConversion: ${JSON.stringify(expr)}`);
 }

@@ -70,16 +70,18 @@ function parseAtom(tokens: string[]): [LambdaExpression, string[]] {
     return [{ type: 'churchBoolean', value: tokens[0].toLowerCase() === 'true' } as ChurchBoolean, tokens.slice(1)];
   }
   
-  if (['+', '*', '-', '=', '<', '>', 'True', 'False', 'And', 'Or', 'Not', 'pred', 'succ', 'toNumber', 'toBool', 'churchAdd', 'churchMult', 'churchPred', 'churchSub', 'churchTrue', 'churchFalse', 'churchAnd', 'churchOr', 'churchNot', 'churchLessThan', 'churchEquals', 'churchSucc', 'f', 'x', 'p', 'q', 'm', 'n', 'g', 'h', 'u'].includes(tokens[0])) {
+  const operators = ['+', '*', '-', '=', '<', '>', 'True', 'False', 'And', 'Or', 'Not', 'pred', 'succ', 'toNumber', 'toBool', 'churchAdd', 'churchMult', 'churchPred', 'churchSub', 'churchTrue', 'churchFalse', 'churchAnd', 'churchOr', 'churchNot', 'churchLessThan', 'churchEquals', 'churchSucc', 'f', 'x', 'p', 'q', 'm', 'n', 'g', 'h', 'u'];
+  
+  if (operators.some(op => op.toLowerCase() === tokens[0].toLowerCase())) {
     return [{ type: 'operator', value: tokens[0] } as Operator, tokens.slice(1)];
   }
   
-  throw new Error(`Unexpected token: ${tokens[0]}`);
+  throw new Error(`Unexpected token: ${tokens[0]}. Expected a variable, number, boolean, operator, or lambda abstraction.`);
 }
 
 function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
   if (tokens.length < 3) {
-    throw new Error('Invalid abstraction syntax');
+    throw new Error('Invalid abstraction syntax: not enough tokens');
   }
   
   const parameter = tokens[1];
