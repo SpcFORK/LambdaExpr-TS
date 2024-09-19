@@ -1,0 +1,194 @@
+ FAIL  tests/parser.test.ts (7.406 s)
+  ● Lambda Calculus Parser › parses an application with parentheses
+
+    expect(received).toEqual(expected) // deep equality
+
+    Expected: {"left": "x", "right": "y", "type": "application"}
+    Received: "x"
+
+      28 |   test('parses an application with parentheses', () => {
+      29 |     const result = parse('((x) (y))');
+    > 30 |     expect(result).toEqual({
+         |                    ^
+      31 |       type: 'application',
+      32 |       left: 'x',
+      33 |       right: 'y',
+
+      at Object.<anonymous> (tests/parser.test.ts:30:20)
+
+  ● Lambda Calculus Parser › parses a complex expression with nested applications
+
+    Unexpected tokens: z
+
+       6 |   
+       7 |   if (remaining.length > 0) {
+    >  8 |     throw new Error(`Unexpected tokens: ${remaining.join(' ')}`);
+         |           ^
+       9 |   }
+      10 |   
+      11 |   return result;
+
+      at parse (src/interpreter/parser.ts:8:11)
+      at Object.<anonymous> (tests/parser.test.ts:65:25)
+
+  ● Lambda Calculus Parser › parses a complex expression with multiple nested parentheses
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 8
+    + Received  + 0
+
+      Object {
+        "body": Object {
+    -     "left": Object {
+          "body": Object {
+            "left": "x",
+            "right": "y",
+            "type": "application",
+          },
+          "parameter": "y",
+    -       "type": "abstraction",
+    -     },
+    -     "right": Object {
+    -       "body": "z",
+    -       "parameter": "z",
+          "type": "abstraction",
+    -     },
+    -     "type": "application",
+        },
+        "parameter": "x",
+        "type": "abstraction",
+      }
+
+      103 |       },
+      104 |     };
+    > 105 |     expect(result).toEqual(expected);
+          |                    ^
+      106 |   });
+      107 |
+      108 |   test('throws error on invalid input', () => {
+
+      at Object.<anonymous> (tests/parser.test.ts:105:20)
+
+ PASS  tests/betaReduction.test.ts (7.395 s)
+ FAIL  tests/evaluator.test.ts (7.408 s)
+  ● Lambda Calculus Evaluator › evaluates identity function
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "y"
+    Received: {"body": "x", "parameter": "x", "type": "abstraction"}
+
+       7 |     const expr = parse('((λx.x) y)');
+       8 |     const result = evaluate(expr);
+    >  9 |     expect(result).toBe('y');
+         |                    ^
+      10 |   });
+      11 |
+      12 |   test('evaluates nested abstractions', () => {
+
+      at Object.<anonymous> (tests/evaluator.test.ts:9:20)
+
+  ● Lambda Calculus Evaluator › evaluates nested abstractions
+
+    Unexpected tokens: b
+
+       6 |   
+       7 |   if (remaining.length > 0) {
+    >  8 |     throw new Error(`Unexpected tokens: ${remaining.join(' ')}`);
+         |           ^
+       9 |   }
+      10 |   
+      11 |   return result;
+
+      at parse (src/interpreter/parser.ts:8:11)
+      at Object.<anonymous> (tests/evaluator.test.ts:13:23)
+
+  ● Lambda Calculus Evaluator › evaluates complex expression
+
+    Unexpected tokens: w
+
+       6 |   
+       7 |   if (remaining.length > 0) {
+    >  8 |     throw new Error(`Unexpected tokens: ${remaining.join(' ')}`);
+         |           ^
+       9 |   }
+      10 |   
+      11 |   return result;
+
+      at parse (src/interpreter/parser.ts:8:11)
+      at Object.<anonymous> (tests/evaluator.test.ts:19:23)
+
+ PASS  tests/alphaConversion.test.ts (7.393 s)
+ FAIL  tests/interpreter.test.ts (7.514 s)
+  ● Lambda Calculus Interpreter › interprets identity function
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "y"
+    Received: "(λx.x)"
+
+      4 |   test('interprets identity function', () => {
+      5 |     const result = interpret('((λx.x) y)');
+    > 6 |     expect(prettyPrint(result)).toBe('y');
+        |                                 ^
+      7 |   });
+      8 |
+      9 |   test('interprets nested abstractions', () => {
+
+      at Object.<anonymous> (tests/interpreter.test.ts:6:33)
+
+  ● Lambda Calculus Interpreter › interprets nested abstractions
+
+    Unexpected tokens: b
+
+       6 |   
+       7 |   if (remaining.length > 0) {
+    >  8 |     throw new Error(`Unexpected tokens: ${remaining.join(' ')}`);
+         |           ^
+       9 |   }
+      10 |   
+      11 |   return result;
+
+      at parse (src/interpreter/parser.ts:8:11)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:10:29)
+
+  ● Lambda Calculus Interpreter › interprets complex expression
+
+    Unexpected tokens: w
+
+       6 |   
+       7 |   if (remaining.length > 0) {
+    >  8 |     throw new Error(`Unexpected tokens: ${remaining.join(' ')}`);
+         |           ^
+       9 |   }
+      10 |   
+      11 |   return result;
+
+      at parse (src/interpreter/parser.ts:8:11)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:15:29)
+
+  ● Lambda Calculus Interpreter › pretty prints expressions correctly
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "(λy.(z y))"
+    Received: "(λx.(λy.(x y)))"
+
+      27 |
+      28 |     const expr2 = interpret('((λx.(λy.(x y))) z)');
+    > 29 |     expect(prettyPrint(expr2)).toBe('(λy.(z y))');
+         |                                ^
+      30 |   });
+      31 | });
+      32 |
+
+      at Object.<anonymous> (tests/interpreter.test.ts:29:32)
+
+Test Suites: 3 failed, 2 passed, 5 total
+Tests:       10 failed, 14 passed, 24 total
+Snapshots:   0 total
+Time:        8.092 s
+Ran all test suites.
