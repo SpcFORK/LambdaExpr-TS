@@ -1,4 +1,4 @@
-import { LambdaExpression, Variable, Abstraction, Application } from '../types';
+import { LambdaExpression, Variable, Abstraction, Application, ChurchNumeral, ChurchBoolean, Operator } from '../types';
 
 export function parse(input: string): LambdaExpression {
   const tokens = tokenize(input);
@@ -16,6 +16,13 @@ function tokenize(input: string): string[] {
     .replace(/\)/g, ' ) ')
     .replace(/\./g, ' . ')
     .replace(/λ/g, ' λ ')
+    .replace(/\$/g, ' $ ')
+    .replace(/\+/g, ' + ')
+    .replace(/\*/g, ' * ')
+    .replace(/-/g, ' - ')
+    .replace(/=/g, ' = ')
+    .replace(/</g, ' < ')
+    .replace(/>/g, ' > ')
     .split(/\s+/)
     .filter(token => token.length > 0);
 }
@@ -47,12 +54,24 @@ function parseAtom(tokens: string[]): [LambdaExpression, string[]] {
     return [expr, remaining.slice(1)];
   }
   
-  if (tokens[0] === 'λ' || tokens[0] === '\\') {
+  if (tokens[0] === 'λ' || tokens[0] === '\\' || tokens[0] === '$') {
     return parseAbstraction(tokens);
   }
   
   if (tokens[0].match(/^[a-z]$/)) {
     return [tokens[0] as Variable, tokens.slice(1)];
+  }
+  
+  if (tokens[0].match(/^\d+$/)) {
+    return [{ type: 'churchNumeral', value: parseInt(tokens[0], 10) } as ChurchNumeral, tokens.slice(1)];
+  }
+  
+  if (['true', 'false'].includes(tokens[0].toLowerCase())) {
+    return [{ type: 'churchBoolean', value: tokens[0].toLowerCase() === 'true' } as ChurchBoolean, tokens.slice(1)];
+  }
+  
+  if (['+', '*', '-', '=', '<', '>', 'True', 'False', 'And', 'Or', 'Not', 'pred', 'succ', 'toNumber', 'toBool', 'churchAdd', 'churchMult', 'churchPred', 'churchSub', 'churchTrue', 'churchFalse', 'churchAnd', 'churchOr', 'churchNot', 'churchLessThan', 'churchEquals', 'churchSucc', 'f', 'x', 'p', 'q', 'm', 'n', 'g', 'h', 'u'].includes(tokens[0])) {
+    return [{ type: 'operator', value: tokens[0] } as Operator, tokens.slice(1)];
   }
   
   throw new Error(`Unexpected token: ${tokens[0]}`);

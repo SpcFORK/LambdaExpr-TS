@@ -1,7 +1,9 @@
-import { LambdaExpression, Abstraction, Application, isVariable, isAbstraction, isApplication } from '../types';
+import { LambdaExpression, Abstraction, Application, isVariable, isAbstraction, isApplication, isChurchNumeral, isChurchBoolean, isOperator } from '../types';
+import { alphaConversion } from './alphaConversion';
+import { betaReduction } from './betaReduction';
 
 export function evaluate(expr: LambdaExpression): LambdaExpression {
-  if (isVariable(expr)) {
+  if (isVariable(expr) || isChurchNumeral(expr) || isChurchBoolean(expr) || isOperator(expr)) {
     return expr;
   } else if (isAbstraction(expr)) {
     return { ...expr, body: evaluate(expr.body) };
@@ -9,7 +11,8 @@ export function evaluate(expr: LambdaExpression): LambdaExpression {
     const evaledLeft = evaluate(expr.left);
     const evaledRight = evaluate(expr.right);
     if (isAbstraction(evaledLeft)) {
-      return evaluate(substitute(evaledLeft.body, evaledLeft.parameter, evaledRight));
+      const alphaConverted = alphaConversion(evaledLeft);
+      return evaluate(betaReduction(alphaConverted, evaledRight));
     }
     return { type: 'application', left: evaledLeft, right: evaledRight };
   }
@@ -29,6 +32,8 @@ function substitute(expr: LambdaExpression, param: string, replacement: LambdaEx
       left: substitute(expr.left, param, replacement),
       right: substitute(expr.right, param, replacement),
     };
+  } else if (isChurchNumeral(expr) || isChurchBoolean(expr) || isOperator(expr)) {
+    return expr;
   }
   throw new Error('Invalid LambdaExpression');
 }

@@ -1,0 +1,296 @@
+ PASS  tests/alphaConversion.test.ts
+ PASS  tests/betaReduction.test.ts (5.188 s)
+ PASS  tests/evaluator.test.ts (5.126 s)
+ PASS  tests/parser.test.ts (5.283 s)
+ PASS  tests/interpreter.test.ts (6.065 s)
+ FAIL  tests/churchEncodings.test.ts (6.061 s)
+  ● Church Encodings › Church numerals
+
+    Unexpected token: x+1
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at churchToNumber (src/churchEncodings.ts:27:28)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:20:26)
+
+  ● Church Encodings › Church addition
+
+    Unexpected token: fx
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:26:29)
+
+  ● Church Encodings › Church multiplication
+
+    Unexpected token: fx
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:31:29)
+
+  ● Church Encodings › Church predecessor
+
+    Unexpected token: fx
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:36:29)
+
+  ● Church Encodings › Church subtraction
+
+    Unexpected token: churchPred
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:41:29)
+
+  ● Church Encodings › Church booleans
+
+    Unexpected token: true
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at churchToBool (src/churchEncodings.ts:41:27)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:46:24)
+
+  ● Church Encodings › Church AND operation
+
+    Unexpected token: true
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at churchToBool (src/churchEncodings.ts:41:27)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:51:24)
+
+  ● Church Encodings › Church OR operation
+
+    Unexpected token: true
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at churchToBool (src/churchEncodings.ts:41:27)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:58:24)
+
+  ● Church Encodings › Church NOT operation
+
+    Unexpected token: churchFalse
+
+      56 |   }
+      57 |   
+    > 58 |   throw new Error(`Unexpected token: ${tokens[0]}`);
+         |         ^
+      59 | }
+      60 |
+      61 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:58:9)
+      at parseApplication (src/interpreter/parser.ts:30:35)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAbstraction (src/interpreter/parser.ts:72:29)
+      at parseAtom (src/interpreter/parser.ts:51:12)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parseAtom (src/interpreter/parser.ts:43:31)
+      at parseApplication (src/interpreter/parser.ts:28:27)
+      at parseExpression (src/interpreter/parser.ts:24:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:65:34)
+
+Test Suites: 1 failed, 5 passed, 6 total
+Tests:       9 failed, 24 passed, 33 total
+Snapshots:   0 total
+Time:        6.643 s
+Ran all test suites.

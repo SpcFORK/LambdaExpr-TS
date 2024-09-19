@@ -1,0 +1,69 @@
+ FAIL  tests/interpreter.test.ts
+  ● Lambda Calculus Interpreter › pretty prints expressions correctly
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "(λx.(x y))"
+    Received: "($x.(x y))"
+
+      24 |   test('pretty prints expressions correctly', () => {
+      25 |     const expr1 = interpret('(λx.(x y))');
+    > 26 |     expect(prettyPrint(expr1)).toBe('(λx.(x y))');
+         |                                ^
+      27 |
+      28 |     const expr2 = interpret('((λx.(λy.(x y))) z)');
+      29 |     expect(prettyPrint(expr2)).toBe('(λy.(z y))');
+
+      at Object.<anonymous> (tests/interpreter.test.ts:26:32)
+
+ FAIL  tests/churchEncodings.test.ts
+  ● Test suite failed to run
+
+    tests/churchEncodings.test.ts:4:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'numeral'.
+
+    4   numeral,
+        ~~~~~~~
+    tests/churchEncodings.test.ts:5:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'add'.
+
+    5   add,
+        ~~~
+    tests/churchEncodings.test.ts:6:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'mult'.
+
+    6   mult,
+        ~~~~
+    tests/churchEncodings.test.ts:7:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'pred'.
+
+    7   pred,
+        ~~~~
+    tests/churchEncodings.test.ts:8:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'sub'.
+
+    8   sub,
+        ~~~
+    tests/churchEncodings.test.ts:9:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'toNumber'.
+
+    9   toNumber,
+        ~~~~~~~~
+    tests/churchEncodings.test.ts:10:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'True'.
+
+    10   True,
+         ~~~~
+    tests/churchEncodings.test.ts:11:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'False'.
+
+    11   False,
+         ~~~~~
+    tests/churchEncodings.test.ts:12:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'And'.
+
+    12   And,
+         ~~~
+    tests/churchEncodings.test.ts:13:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'Or'.
+
+    13   Or,
+         ~~
+    tests/churchEncodings.test.ts:14:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'Not'.
+
+    14   Not,
+         ~~~
+    tests/churchEncodings.test.ts:15:3 - error TS2305: Module '"../src/interpreter"' has no exported member 'toBool'.
+
+    15   toBool
+         ~~~~~~

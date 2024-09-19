@@ -7,7 +7,7 @@ describe('Lambda Calculus Parser', () => {
     expect(result).toBe('x');
   });
 
-  test('parses an abstraction with parentheses', () => {
+  test('parses an abstraction with parentheses using λ', () => {
     const result = parse('(λx.x)');
     expect(result).toEqual({
       type: 'abstraction',
@@ -16,8 +16,26 @@ describe('Lambda Calculus Parser', () => {
     });
   });
 
-  test('parses an abstraction without parentheses', () => {
+  test('parses an abstraction with parentheses using $', () => {
+    const result = parse('($x.x)');
+    expect(result).toEqual({
+      type: 'abstraction',
+      parameter: 'x',
+      body: 'x',
+    });
+  });
+
+  test('parses an abstraction without parentheses using λ', () => {
     const result = parse('λx.x');
+    expect(result).toEqual({
+      type: 'abstraction',
+      parameter: 'x',
+      body: 'x',
+    });
+  });
+
+  test('parses an abstraction without parentheses using $', () => {
+    const result = parse('$x.x');
     expect(result).toEqual({
       type: 'abstraction',
       parameter: 'x',
@@ -43,8 +61,26 @@ describe('Lambda Calculus Parser', () => {
     });
   });
 
-  test('parses a complex expression with nested abstractions', () => {
+  test('parses a complex expression with nested abstractions using λ', () => {
     const result = parse('λx.λy.x y');
+    const expected: LambdaExpression = {
+      type: 'abstraction',
+      parameter: 'x',
+      body: {
+        type: 'abstraction',
+        parameter: 'y',
+        body: {
+          type: 'application',
+          left: 'x',
+          right: 'y',
+        },
+      },
+    };
+    expect(result).toEqual(expected);
+  });
+
+  test('parses a complex expression with nested abstractions using $', () => {
+    const result = parse('$x.$y.x y');
     const expected: LambdaExpression = {
       type: 'abstraction',
       parameter: 'x',
@@ -109,7 +145,9 @@ describe('Lambda Calculus Parser', () => {
     expect(() => parse('')).toThrow('Unexpected end of input');
     expect(() => parse('(x')).toThrow('Missing closing parenthesis');
     expect(() => parse('λx')).toThrow('Invalid abstraction syntax');
+    expect(() => parse('$x')).toThrow('Invalid abstraction syntax');
     expect(() => parse('λ.x')).toThrow('Invalid abstraction syntax');
+    expect(() => parse('$.x')).toThrow('Invalid abstraction syntax');
     expect(() => parse('x y)')).toThrow('Unexpected tokens: )');
     expect(() => parse('((x) y')).toThrow('Missing closing parenthesis');
   });
