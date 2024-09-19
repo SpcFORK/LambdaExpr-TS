@@ -1,6 +1,7 @@
 import { LambdaExpression, Abstraction, Application } from './types';
 import { parse } from './interpreter/parser';
 import { evaluate } from './interpreter/evaluator';
+import * as ChurchEncodings from './churchEncodings';
 
 export function interpret(input: string): LambdaExpression {
   const parsed = parse(input);
@@ -17,3 +18,19 @@ export function prettyPrint(expr: LambdaExpression): string {
   }
   throw new Error('Invalid LambdaExpression');
 }
+
+// Export Church encoding functions
+export const {
+  churchNumeral,
+  churchAdd,
+  churchMult,
+  churchPred,
+  churchSub,
+  churchToNumber,
+  churchTrue,
+  churchFalse,
+  churchAnd,
+  churchOr,
+  churchNot,
+  churchToBool
+} = ChurchEncodings;
