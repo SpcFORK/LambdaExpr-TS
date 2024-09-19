@@ -3,6 +3,9 @@ import { parse } from './interpreter/parser';
 import { evaluate } from './interpreter/evaluator';
 import * as ChurchEncodings from './churchEncodings';
 
+export { parse } from './interpreter/parser';
+export { evaluate } from './interpreter/evaluator';
+
 export function interpret(input: string): LambdaExpression {
   const parsed = parse(input);
   return evaluate(parsed);
