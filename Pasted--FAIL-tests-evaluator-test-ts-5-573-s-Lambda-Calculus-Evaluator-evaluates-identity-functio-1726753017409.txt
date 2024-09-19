@@ -1,0 +1,168 @@
+ FAIL  tests/evaluator.test.ts (5.573 s)
+  ● Lambda Calculus Evaluator › evaluates identity function
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at Object.<anonymous> (tests/evaluator.test.ts:7:23)
+
+  ● Lambda Calculus Evaluator › evaluates nested abstractions
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at Object.<anonymous> (tests/evaluator.test.ts:13:23)
+
+  ● Lambda Calculus Evaluator › evaluates complex expression
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at Object.<anonymous> (tests/evaluator.test.ts:19:23)
+
+ PASS  tests/alphaConversion.test.ts (5.698 s)
+ FAIL  tests/interpreter.test.ts (5.705 s)
+  ● Lambda Calculus Interpreter › interprets identity function
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:5:29)
+
+  ● Lambda Calculus Interpreter › interprets nested abstractions
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:10:29)
+
+  ● Lambda Calculus Interpreter › interprets complex expression
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:15:29)
+
+  ● Lambda Calculus Interpreter › pretty prints expressions correctly
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:28:28)
+
+ FAIL  tests/parser.test.ts (5.739 s)
+  ● Lambda Calculus Parser › parses an application with parentheses
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at Object.<anonymous> (tests/parser.test.ts:29:25)
+
+  ● Lambda Calculus Parser › parses a complex expression with nested applications
+
+    Missing closing parenthesis
+
+      41 |   
+      42 |   if (remaining.length === 0 || remaining[0] !== ')') {
+    > 43 |     throw new Error('Missing closing parenthesis');
+         |           ^
+      44 |   }
+      45 |   
+      46 |   return [expr, remaining.slice(1)];
+
+      at parseParenthesizedExpression (src/interpreter/parser.ts:43:11)
+      at parseExpression (src/interpreter/parser.ts:29:12)
+      at parse (src/interpreter/parser.ts:5:31)
+      at Object.<anonymous> (tests/parser.test.ts:65:25)
+
+ PASS  tests/betaReduction.test.ts (5.948 s)
+
+Test Suites: 3 failed, 2 passed, 5 total
+Tests:       9 failed, 14 passed, 23 total
+Snapshots:   0 total
+Time:        6.453 s
+Ran all test suites.

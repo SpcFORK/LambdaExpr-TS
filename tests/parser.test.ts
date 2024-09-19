@@ -79,11 +79,38 @@ describe('Lambda Calculus Parser', () => {
     expect(result).toEqual(expected);
   });
 
+  test('parses a complex expression with multiple nested parentheses', () => {
+    const result = parse('(λx.((λy.(x y)) (λz.z)))');
+    const expected: LambdaExpression = {
+      type: 'abstraction',
+      parameter: 'x',
+      body: {
+        type: 'application',
+        left: {
+          type: 'abstraction',
+          parameter: 'y',
+          body: {
+            type: 'application',
+            left: 'x',
+            right: 'y',
+          },
+        },
+        right: {
+          type: 'abstraction',
+          parameter: 'z',
+          body: 'z',
+        },
+      },
+    };
+    expect(result).toEqual(expected);
+  });
+
   test('throws error on invalid input', () => {
     expect(() => parse('')).toThrow('Unexpected end of input');
     expect(() => parse('(x')).toThrow('Missing closing parenthesis');
     expect(() => parse('λx')).toThrow('Invalid abstraction syntax');
     expect(() => parse('λ.x')).toThrow('Invalid abstraction syntax');
     expect(() => parse('x y)')).toThrow('Unexpected tokens: )');
+    expect(() => parse('((x) y')).toThrow('Missing closing parenthesis');
   });
 });
