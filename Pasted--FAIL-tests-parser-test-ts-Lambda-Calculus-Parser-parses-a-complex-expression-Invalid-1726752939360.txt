@@ -1,0 +1,215 @@
+ FAIL  tests/parser.test.ts
+  ● Lambda Calculus Parser › parses a complex expression
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at Object.<anonymous> (tests/parser.test.ts:29:25)
+
+ FAIL  tests/betaReduction.test.ts
+  ● Beta Reduction › performs beta reduction with complex expression
+
+    Invalid lambda expression
+
+      50 |   }
+      51 |
+    > 52 |   throw new Error('Invalid lambda expression');
+         |         ^
+      53 | }
+      54 |
+      55 | function findMatchingClosingParen(input: string): number {
+
+      at parse (src/interpreter/parser.ts:52:9)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:32:13)
+      at Object.<anonymous> (tests/betaReduction.test.ts:25:30)
+
+ FAIL  tests/alphaConversion.test.ts
+  ● Alpha Conversion › does not modify unrelated variables
+
+    Invalid lambda expression
+
+      50 |   }
+      51 |
+    > 52 |   throw new Error('Invalid lambda expression');
+         |         ^
+      53 | }
+      54 |
+      55 | function findMatchingClosingParen(input: string): number {
+
+      at parse (src/interpreter/parser.ts:52:9)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:32:13)
+      at Object.<anonymous> (tests/alphaConversion.test.ts:21:23)
+
+ FAIL  tests/evaluator.test.ts
+  ● Lambda Calculus Evaluator › evaluates identity function
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at Object.<anonymous> (tests/evaluator.test.ts:7:23)
+
+  ● Lambda Calculus Evaluator › evaluates nested abstractions
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:47:13)
+      at Object.<anonymous> (tests/evaluator.test.ts:13:23)
+
+  ● Lambda Calculus Evaluator › evaluates complex expression
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:47:13)
+      at Object.<anonymous> (tests/evaluator.test.ts:19:23)
+
+  ● Lambda Calculus Evaluator › handles free variables
+
+    Invalid lambda expression
+
+      50 |   }
+      51 |
+    > 52 |   throw new Error('Invalid lambda expression');
+         |         ^
+      53 | }
+      54 |
+      55 | function findMatchingClosingParen(input: string): number {
+
+      at parse (src/interpreter/parser.ts:52:9)
+      at parse (src/interpreter/parser.ts:39:14)
+      at Object.<anonymous> (tests/evaluator.test.ts:25:23)
+
+ FAIL  tests/interpreter.test.ts
+  ● Lambda Calculus Interpreter › interprets identity function
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:5:29)
+
+  ● Lambda Calculus Interpreter › interprets nested abstractions
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:47:13)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:10:29)
+
+  ● Lambda Calculus Interpreter › interprets complex expression
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:47:13)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:15:29)
+
+  ● Lambda Calculus Interpreter › handles free variables
+
+    Invalid lambda expression
+
+      50 |   }
+      51 |
+    > 52 |   throw new Error('Invalid lambda expression');
+         |         ^
+      53 | }
+      54 |
+      55 | function findMatchingClosingParen(input: string): number {
+
+      at parse (src/interpreter/parser.ts:52:9)
+      at parse (src/interpreter/parser.ts:39:14)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:20:29)
+
+  ● Lambda Calculus Interpreter › pretty prints expressions correctly
+
+    Invalid lambda expression
+
+      50 |   }
+      51 |
+    > 52 |   throw new Error('Invalid lambda expression');
+         |         ^
+      53 | }
+      54 |
+      55 | function findMatchingClosingParen(input: string): number {
+
+      at parse (src/interpreter/parser.ts:52:9)
+      at parse (src/interpreter/parser.ts:39:14)
+      at parse (src/interpreter/parser.ts:32:13)
+      at interpret (src/interpreter.ts:6:23)
+      at Object.<anonymous> (tests/interpreter.test.ts:25:28)
+
+Test Suites: 5 failed, 5 total
+Tests:       12 failed, 8 passed, 20 total
+Snapshots:   0 total
+Time:        5.337 s, estimated 7 s
+Ran all test suites.
+
