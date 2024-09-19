@@ -1,4 +1,4 @@
-import { LambdaExpression, Variable, Abstraction, Application } from '../types';
+import { LambdaExpression, Variable, Abstraction, Application, isVariable } from '../types';
 
 export function parse(input: string): LambdaExpression {
   input = input.trim();

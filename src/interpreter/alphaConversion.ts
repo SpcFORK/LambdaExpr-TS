@@ -1,4 +1,4 @@
-import { LambdaExpression, Abstraction, Variable } from '../types';
+import { LambdaExpression, Abstraction, Variable, isVariable, isAbstraction, isApplication } from '../types';
 
 let uniqueCounter = 0;
 
@@ -16,22 +16,22 @@ function generateUniqueVariable(base: string): string {
 }
 
 function replaceVariable(expr: LambdaExpression, oldVar: Variable, newVar: Variable): LambdaExpression {
-  switch (expr.type) {
-    case 'abstraction':
-      return expr.parameter === oldVar
-        ? expr
-        : {
-            type: 'abstraction',
-            parameter: expr.parameter,
-            body: replaceVariable(expr.body, oldVar, newVar),
-          };
-    case 'application':
-      return {
-        type: 'application',
-        left: replaceVariable(expr.left, oldVar, newVar),
-        right: replaceVariable(expr.right, oldVar, newVar),
-      };
-    default:
-      return expr === oldVar ? newVar : expr;
+  if (isVariable(expr)) {
+    return expr === oldVar ? newVar : expr;
+  } else if (isAbstraction(expr)) {
+    return expr.parameter === oldVar
+      ? expr
+      : {
+          type: 'abstraction',
+          parameter: expr.parameter,
+          body: replaceVariable(expr.body, oldVar, newVar),
+        };
+  } else if (isApplication(expr)) {
+    return {
+      type: 'application',
+      left: replaceVariable(expr.left, oldVar, newVar),
+      right: replaceVariable(expr.right, oldVar, newVar),
+    };
   }
+  throw new Error('Invalid LambdaExpression');
 }

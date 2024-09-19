@@ -1,0 +1,182 @@
+ FAIL  tests/betaReduction.test.ts
+  ● Test suite failed to run
+
+    src/interpreter/betaReduction.ts:8:16 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+      Property 'type' does not exist on type 'string'.
+
+    8   switch (expr.type) {
+                     ~~~~
+    src/interpreter/betaReduction.ts:10:19 - error TS2339: Property 'parameter' does not exist on type 'LambdaExpression'.
+      Property 'parameter' does not exist on type 'string'.
+
+    10       return expr.parameter === variable
+                         ~~~~~~~~~
+    src/interpreter/betaReduction.ts:14:29 - error TS2339: Property 'parameter' does not exist on type 'LambdaExpression'.
+      Property 'parameter' does not exist on type 'string'.
+
+    14             parameter: expr.parameter,
+                                   ~~~~~~~~~
+    src/interpreter/betaReduction.ts:15:35 - error TS2339: Property 'body' does not exist on type 'LambdaExpression'.
+      Property 'body' does not exist on type 'string'.
+
+    15             body: substitute(expr.body, variable, replacement),
+                                         ~~~~
+    src/interpreter/betaReduction.ts:20:31 - error TS2339: Property 'left' does not exist on type 'LambdaExpression'.
+      Property 'left' does not exist on type 'string'.
+
+    20         left: substitute(expr.left, variable, replacement),
+                                     ~~~~
+    src/interpreter/betaReduction.ts:21:32 - error TS2339: Property 'right' does not exist on type 'LambdaExpression'.
+      Property 'right' does not exist on type 'string'.
+
+    21         right: substitute(expr.right, variable, replacement),
+                                      ~~~~~
+
+ FAIL  tests/evaluator.test.ts
+  ● Test suite failed to run
+
+    src/interpreter/evaluator.ts:6:16 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+      Property 'type' does not exist on type 'string'.
+
+    6   switch (expr.type) {
+                     ~~~~
+    src/interpreter/evaluator.ts:9:9 - error TS2698: Spread types may only be created from object types.
+
+    9         ...expr,
+              ~~~~~~~
+    src/interpreter/evaluator.ts:10:29 - error TS2339: Property 'body' does not exist on type 'LambdaExpression'.
+      Property 'body' does not exist on type 'string'.
+
+    10         body: evaluate(expr.body),
+                                   ~~~~
+    src/interpreter/evaluator.ts:13:40 - error TS2339: Property 'left' does not exist on type 'LambdaExpression'.
+      Property 'left' does not exist on type 'string'.
+
+    13       const evaledLeft = evaluate(expr.left);
+                                              ~~~~
+    src/interpreter/evaluator.ts:14:41 - error TS2339: Property 'right' does not exist on type 'LambdaExpression'.
+      Property 'right' does not exist on type 'string'.
+
+    14       const evaledRight = evaluate(expr.right);
+                                               ~~~~~
+    src/interpreter/evaluator.ts:16:22 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+      Property 'type' does not exist on type 'string'.
+
+    16       if (evaledLeft.type === 'abstraction') {
+                            ~~~~
+    src/interpreter/evaluator.ts:17:48 - error TS2345: Argument of type 'LambdaExpression' is not assignable to parameter of type 'Abstraction'.
+      Type 'string' is not assignable to type 'Abstraction'.
+
+    17         const alphaConverted = alphaConversion(evaledLeft);
+                                                      ~~~~~~~~~~
+
+ FAIL  tests/alphaConversion.test.ts
+  ● Test suite failed to run
+
+    src/interpreter/alphaConversion.ts:19:16 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+      Property 'type' does not exist on type 'string'.
+
+    19   switch (expr.type) {
+                      ~~~~
+    src/interpreter/alphaConversion.ts:21:19 - error TS2339: Property 'parameter' does not exist on type 'LambdaExpression'.
+      Property 'parameter' does not exist on type 'string'.
+
+    21       return expr.parameter === oldVar
+                         ~~~~~~~~~
+    src/interpreter/alphaConversion.ts:25:29 - error TS2339: Property 'parameter' does not exist on type 'LambdaExpression'.
+      Property 'parameter' does not exist on type 'string'.
+
+    25             parameter: expr.parameter,
+                                   ~~~~~~~~~
+    src/interpreter/alphaConversion.ts:26:40 - error TS2339: Property 'body' does not exist on type 'LambdaExpression'.
+      Property 'body' does not exist on type 'string'.
+
+    26             body: replaceVariable(expr.body, oldVar, newVar),
+                                              ~~~~
+    src/interpreter/alphaConversion.ts:31:36 - error TS2339: Property 'left' does not exist on type 'LambdaExpression'.
+      Property 'left' does not exist on type 'string'.
+
+    31         left: replaceVariable(expr.left, oldVar, newVar),
+                                          ~~~~
+    src/interpreter/alphaConversion.ts:32:37 - error TS2339: Property 'right' does not exist on type 'LambdaExpression'.
+      Property 'right' does not exist on type 'string'.
+
+    32         right: replaceVariable(expr.right, oldVar, newVar),
+                                           ~~~~~
+
+ FAIL  tests/parser.test.ts (5.608 s)
+  ● Lambda Calculus Parser › parses an application
+
+    Invalid lambda expression
+
+      50 |   }
+      51 |
+    > 52 |   throw new Error('Invalid lambda expression');
+         |         ^
+      53 | }
+      54 |
+      55 | function findMatchingClosingParen(input: string): number {
+
+      at parse (src/interpreter/parser.ts:52:9)
+      at parse (src/interpreter/parser.ts:39:14)
+      at Object.<anonymous> (tests/parser.test.ts:20:25)
+
+  ● Lambda Calculus Parser › parses a complex expression
+
+    Invalid abstraction syntax
+
+      15 |     const closingParenIndex = findMatchingClosingParen(input);
+      16 |     if (closingParenIndex !== input.length - 1) {
+    > 17 |       throw new Error('Invalid abstraction syntax');
+         |             ^
+      18 |     }
+      19 |
+      20 |     const body = input.slice(1, -1);
+
+      at parse (src/interpreter/parser.ts:17:13)
+      at parse (src/interpreter/parser.ts:39:14)
+      at Object.<anonymous> (tests/parser.test.ts:29:25)
+
+ FAIL  tests/interpreter.test.ts
+  ● Test suite failed to run
+
+    src/interpreter/evaluator.ts:6:16 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+      Property 'type' does not exist on type 'string'.
+
+    6   switch (expr.type) {
+                     ~~~~
+    src/interpreter/evaluator.ts:9:9 - error TS2698: Spread types may only be created from object types.
+
+    9         ...expr,
+              ~~~~~~~
+    src/interpreter/evaluator.ts:10:29 - error TS2339: Property 'body' does not exist on type 'LambdaExpression'.
+      Property 'body' does not exist on type 'string'.
+
+    10         body: evaluate(expr.body),
+                                   ~~~~
+    src/interpreter/evaluator.ts:13:40 - error TS2339: Property 'left' does not exist on type 'LambdaExpression'.
+      Property 'left' does not exist on type 'string'.
+
+    13       const evaledLeft = evaluate(expr.left);
+                                              ~~~~
+    src/interpreter/evaluator.ts:14:41 - error TS2339: Property 'right' does not exist on type 'LambdaExpression'.
+      Property 'right' does not exist on type 'string'.
+
+    14       const evaledRight = evaluate(expr.right);
+                                               ~~~~~
+    src/interpreter/evaluator.ts:16:22 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+      Property 'type' does not exist on type 'string'.
+
+    16       if (evaledLeft.type === 'abstraction') {
+                            ~~~~
+    src/interpreter/evaluator.ts:17:48 - error TS2345: Argument of type 'LambdaExpression' is not assignable to parameter of type 'Abstraction'.
+      Type 'string' is not assignable to type 'Abstraction'.
+
+    17         const alphaConverted = alphaConversion(evaledLeft);
+                                                      ~~~~~~~~~~
+
+Test Suites: 5 failed, 5 total
+Tests:       2 failed, 3 passed, 5 total
+Snapshots:   0 total
+Time:        6.215 s, estimated 7 s
+Ran all test suites.

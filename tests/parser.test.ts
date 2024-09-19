@@ -17,7 +17,7 @@ describe('Lambda Calculus Parser', () => {
   });
 
   test('parses an application', () => {
-    const result = parse('(x y)');
+    const result = parse('((x) (y))');
     expect(result).toEqual({
       type: 'application',
       left: 'x',

@@ -1,4 +1,4 @@
-import { LambdaExpression } from './types';
+import { LambdaExpression, Abstraction, Application } from './types';
 import { parse } from './interpreter/parser';
 import { evaluate } from './interpreter/evaluator';
 
@@ -8,12 +8,12 @@ export function interpret(input: string): LambdaExpression {
 }
 
 export function prettyPrint(expr: LambdaExpression): string {
-  switch (expr.type) {
-    case 'abstraction':
-      return `(λ${expr.parameter}.${prettyPrint(expr.body)})`;
-    case 'application':
-      return `(${prettyPrint(expr.left)} ${prettyPrint(expr.right)})`;
-    default:
-      return expr;
+  if (typeof expr === 'string') {
+    return expr;
+  } else if (expr.type === 'abstraction') {
+    return `(λ${expr.parameter}.${prettyPrint(expr.body)})`;
+  } else if (expr.type === 'application') {
+    return `(${prettyPrint(expr.left)} ${prettyPrint(expr.right)})`;
   }
+  throw new Error('Invalid LambdaExpression');
 }

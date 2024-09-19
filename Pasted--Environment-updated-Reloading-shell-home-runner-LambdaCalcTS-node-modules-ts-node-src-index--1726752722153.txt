@@ -1,0 +1,48 @@
+ Environment updated. Reloading shell...
+/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:859
+    return new TSError(diagnosticText, diagnosticCodes, diagnostics);
+           ^
+TSError: ⨯ Unable to compile TypeScript:
+src/interpreter.ts:11:16 - error TS2339: Property 'type' does not exist on type 'LambdaExpression'.
+  Property 'type' does not exist on type 'string'.
+
+11   switch (expr.type) {
+                  ~~~~
+src/interpreter.ts:13:24 - error TS2339: Property 'parameter' does not exist on type 'LambdaExpression'.
+  Property 'parameter' does not exist on type 'string'.
+
+13       return `(λ${expr.parameter}.${prettyPrint(expr.body)})`;
+                          ~~~~~~~~~
+src/interpreter.ts:13:54 - error TS2339: Property 'body' does not exist on type 'LambdaExpression'.
+  Property 'body' does not exist on type 'string'.
+
+13       return `(λ${expr.parameter}.${prettyPrint(expr.body)})`;
+                                                        ~~~~
+src/interpreter.ts:15:35 - error TS2339: Property 'left' does not exist on type 'LambdaExpression'.
+  Property 'left' does not exist on type 'string'.
+
+15       return `(${prettyPrint(expr.left)} ${prettyPrint(expr.right)})`;
+                                     ~~~~
+src/interpreter.ts:15:61 - error TS2339: Property 'right' does not exist on type 'LambdaExpression'.
+  Property 'right' does not exist on type 'string'.
+
+15       return `(${prettyPrint(expr.left)} ${prettyPrint(expr.right)})`;
+                                                               ~~~~~
+src/interpreter.ts:17:7 - error TS2322: Type 'LambdaExpression' is not assignable to type 'string'.
+  Type 'Abstraction' is not assignable to type 'string'.
+
+17       return expr;
+         ~~~~~~
+
+    at createTSError (/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:859:12)
+    at reportTSError (/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:863:19)
+    at getOutput (/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:1077:36)
+    at Object.compile (/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:1433:41)
+    at Module.m._compile (/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:1617:30)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1416:10)
+    at Object.require.extensions.<computed> [as .ts] (/home/runner/LambdaCalcTS/node_modules/ts-node/src/index.ts:1621:12)
+    at Module.load (node:internal/modules/cjs/loader:1208:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:1024:12)
+    at Module.require (node:internal/modules/cjs/loader:1233:19) {
+  diagnosticCodes: [ 2339, 2339, 2339, 2339, 2339, 2322 ]
+}
