@@ -1,0 +1,104 @@
+ FAIL  tests/churchEncodings.test.ts (6.198 s)
+  ● Church Encodings › Church numerals
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      19 |   test('Church numerals', () => {
+      20 |     expect(toNumber(interpret(numeral(0)))).toBe(0);
+    > 21 |     expect(toNumber(interpret(numeral(1)))).toBe(1);
+         |                                             ^
+      22 |     expect(toNumber(interpret(numeral(5)))).toBe(5);
+      23 |     expect(prettyPrint(interpret(numeral(3)))).toBe('(λf.λx.f (f (f x)))');
+      24 |   });
+
+      at Object.<anonymous> (tests/churchEncodings.test.ts:21:45)
+
+  ● Church Encodings › Church addition
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 5
+    Received: 0
+
+      26 |   test('Church addition', () => {
+      27 |     const result = interpret(`(${add} ${numeral(2)} ${numeral(3)})`);
+    > 28 |     expect(toNumber(result)).toBe(5);
+         |                              ^
+      29 |     expect(prettyPrint(result)).toBe('(λf.λx.f (f (f (f (f x)))))');
+      30 |   });
+      31 |
+
+      at Object.<anonymous> (tests/churchEncodings.test.ts:28:30)
+
+  ● Church Encodings › Church multiplication
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 6
+    Received: 0
+
+      32 |   test('Church multiplication', () => {
+      33 |     const result = interpret(`(${mult} ${numeral(2)} ${numeral(3)})`);
+    > 34 |     expect(toNumber(result)).toBe(6);
+         |                              ^
+      35 |     expect(prettyPrint(result)).toBe('(λf.λx.f (f (f (f (f (f x))))))');
+      36 |   });
+      37 |
+
+      at Object.<anonymous> (tests/churchEncodings.test.ts:34:30)
+
+  ● Church Encodings › Church predecessor
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      38 |   test('Church predecessor', () => {
+      39 |     const result = interpret(`(${pred} ${numeral(3)})`);
+    > 40 |     expect(toNumber(result)).toBe(2);
+         |                              ^
+      41 |     expect(prettyPrint(result)).toBe('(λf.λx.f (f x))');
+      42 |   });
+      43 |
+
+      at Object.<anonymous> (tests/churchEncodings.test.ts:40:30)
+
+  ● Church Encodings › Church subtraction
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: 2
+    Received: 0
+
+      44 |   test('Church subtraction', () => {
+      45 |     const result = interpret(`(${sub} ${numeral(5)} ${numeral(3)})`);
+    > 46 |     expect(toNumber(result)).toBe(2);
+         |                              ^
+      47 |     expect(prettyPrint(result)).toBe('(λf.λx.f (f x))');
+      48 |   });
+      49 |
+
+      at Object.<anonymous> (tests/churchEncodings.test.ts:46:30)
+
+  ● Church Encodings › Church booleans
+
+    expect(received).toBe(expected) // Object.is equality
+
+    Expected: "(λx.λy.x)"
+    Received: "(λx.(λy.x))"
+
+      51 |     expect(toBool(interpret(True))).toBe(true);
+      52 |     expect(toBool(interpret(False))).toBe(false);
+    > 53 |     expect(prettyPrint(interpret(True))).toBe('(λx.λy.x)');
+         |                                          ^
+      54 |     expect(prettyPrint(interpret(False))).toBe('(λx.λy.y)');
+      55 |   });
+      56 |
+
+      at Object.<anonymous> (tests/churchEncodings.test.ts:53:42)
+
+Test Suites: 1 failed, 5 passed, 6 total

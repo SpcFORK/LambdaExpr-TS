@@ -1,0 +1,244 @@
+ FAIL  tests/churchEncodings.test.ts (5.703 s)
+  ● Church Encodings › Church numerals
+
+    Unexpected token: fx. Expected a variable, number, boolean, operator, or lambda abstraction.
+
+      77 |   }
+      78 |   
+    > 79 |   throw new Error(`Unexpected token: ${tokens[0]}. Expected a variable, number, boolean, operator, or lambda abstraction.`);
+         |         ^
+      80 | }
+      81 |
+      82 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:79:9)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:21:30)
+
+  ● Church Encodings › Church addition
+
+    Unexpected token: fx. Expected a variable, number, boolean, operator, or lambda abstraction.
+
+      77 |   }
+      78 |   
+    > 79 |   throw new Error(`Unexpected token: ${tokens[0]}. Expected a variable, number, boolean, operator, or lambda abstraction.`);
+         |         ^
+      80 | }
+      81 |
+      82 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:79:9)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:26:29)
+
+  ● Church Encodings › Church multiplication
+
+    Unexpected token: fx. Expected a variable, number, boolean, operator, or lambda abstraction.
+
+      77 |   }
+      78 |   
+    > 79 |   throw new Error(`Unexpected token: ${tokens[0]}. Expected a variable, number, boolean, operator, or lambda abstraction.`);
+         |         ^
+      80 | }
+      81 |
+      82 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:79:9)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:31:29)
+
+  ● Church Encodings › Church predecessor
+
+    Unexpected token: fx. Expected a variable, number, boolean, operator, or lambda abstraction.
+
+      77 |   }
+      78 |   
+    > 79 |   throw new Error(`Unexpected token: ${tokens[0]}. Expected a variable, number, boolean, operator, or lambda abstraction.`);
+         |         ^
+      80 | }
+      81 |
+      82 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:79:9)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:36:29)
+
+  ● Church Encodings › Church subtraction
+
+    Unexpected token: fx. Expected a variable, number, boolean, operator, or lambda abstraction.
+
+      77 |   }
+      78 |   
+    > 79 |   throw new Error(`Unexpected token: ${tokens[0]}. Expected a variable, number, boolean, operator, or lambda abstraction.`);
+         |         ^
+      80 | }
+      81 |
+      82 | function parseAbstraction(tokens: string[]): [Abstraction, string[]] {
+
+      at parseAtom (src/interpreter/parser.ts:79:9)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAbstraction (src/interpreter/parser.ts:93:29)
+      at parseAtom (src/interpreter/parser.ts:58:12)
+      at parseApplication (src/interpreter/parser.ts:37:35)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parseAtom (src/interpreter/parser.ts:50:31)
+      at parseApplication (src/interpreter/parser.ts:35:27)
+      at parseExpression (src/interpreter/parser.ts:31:10)
+      at parse (src/interpreter/parser.ts:5:31)
+      at interpret (src/interpreter.ts:10:23)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:41:29)
+
+  ● Church Encodings › Church booleans
+
+    Invalid LambdaExpression
+
+      23 |     };
+      24 |   }
+    > 25 |   throw new Error('Invalid LambdaExpression');
+         |         ^
+      26 | }
+      27 |
+
+      at substitute (src/interpreter/betaReduction.ts:25:9)
+      at betaReduction (src/interpreter/betaReduction.ts:4:10)
+      at evaluate (src/interpreter/evaluator.ts:15:36)
+      at interpret (src/interpreter.ts:11:18)
+      at churchToBool (src/churchEncodings.ts:39:30)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:46:18)
+
+  ● Church Encodings › Church AND operation
+
+    Invalid LambdaExpression
+
+      23 |     };
+      24 |   }
+    > 25 |   throw new Error('Invalid LambdaExpression');
+         |         ^
+      26 | }
+      27 |
+
+      at substitute (src/interpreter/betaReduction.ts:25:9)
+      at betaReduction (src/interpreter/betaReduction.ts:4:10)
+      at evaluate (src/interpreter/evaluator.ts:15:36)
+      at interpret (src/interpreter.ts:11:18)
+      at churchToBool (src/churchEncodings.ts:39:30)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:51:18)
+
+  ● Church Encodings › Church OR operation
+
+    Invalid LambdaExpression
+
+      23 |     };
+      24 |   }
+    > 25 |   throw new Error('Invalid LambdaExpression');
+         |         ^
+      26 | }
+      27 |
+
+      at substitute (src/interpreter/betaReduction.ts:25:9)
+      at betaReduction (src/interpreter/betaReduction.ts:4:10)
+      at evaluate (src/interpreter/evaluator.ts:15:36)
+      at interpret (src/interpreter.ts:11:18)
+      at churchToBool (src/churchEncodings.ts:39:30)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:58:18)
+
+  ● Church Encodings › Church NOT operation
+
+    Invalid LambdaExpression
+
+      23 |     };
+      24 |   }
+    > 25 |   throw new Error('Invalid LambdaExpression');
+         |         ^
+      26 | }
+      27 |
+
+      at substitute (src/interpreter/betaReduction.ts:25:9)
+      at substitute (src/interpreter/betaReduction.ts:22:14)
+      at substitute (src/interpreter/betaReduction.ts:21:13)
+      at betaReduction (src/interpreter/betaReduction.ts:4:10)
+      at evaluate (src/interpreter/evaluator.ts:15:36)
+      at interpret (src/interpreter.ts:11:18)
+      at Object.<anonymous> (tests/churchEncodings.test.ts:65:28)

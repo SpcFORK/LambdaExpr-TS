@@ -1,0 +1,46 @@
+This output summarizes the results of running a series of tests on Church encodings (a way to represent data and operators in the lambda calculus). Several tests failed, and the details for each failure are provided below.
+
+Test Failures
+Church numerals
+
+Expected Result: The numeric equivalent of Church numeral 1 should be 1.
+Received Result: The result was 0 instead.
+Location in code: tests/churchEncodings.test.ts:21:45
+expect(toNumber(interpret(numeral(1)))).toBe(1);
+Church addition
+
+Expected Result: The sum of Church numerals 2 and 3 should be 5.
+Received Result: The result was 0 instead.
+Location in code: tests/churchEncodings.test.ts:28:30
+expect(toNumber(result)).toBe(5);
+Church multiplication
+
+Expected Result: The product of Church numerals 2 and 3 should be 6.
+Received Result: The result was 0 instead.
+Location in code: tests/churchEncodings.test.ts:34:30
+expect(toNumber(result)).toBe(6);
+Church predecessor
+
+Expected Result: The predecessor of Church numeral 3 should be 2.
+Received Result: The result was 0 instead.
+Location in code: tests/churchEncodings.test.ts:40:30
+expect(toNumber(result)).toBe(2);
+Church subtraction
+
+Expected Result: The result of subtracting Church numeral 3 from 5 should be 2.
+Received Result: The result was 0 instead.
+Location in code: tests/churchEncodings.test.ts:46:30
+expect(toNumber(result)).toBe(2);
+Church booleans
+
+Expected Result: The pretty-printed format of Church boolean True should be (λx.λy.x).
+Received Result: The format was (λx.(λy.x)) instead.
+Location in code: tests/churchEncodings.test.ts:53:42
+expect(prettyPrint(interpret(True))).toBe('(λx.λy.x)');
+Summary
+Each test checks a specific aspect of Church encodings (numerals, addition, multiplication, predecessor, subtraction, and booleans). The comparisons in the tests are between expected and actual results.
+
+For numerals, addition, multiplication, predecessor, and subtraction, the actual returned value is 0 instead of the expected numeric value.
+For boolean representation, the output format is correct but not as expected due to slight differences in lambda expressions.
+Next Steps
+Check the functions interpret, numeral, toNumber, prettyPrint, and specific Church operations (add, mult, pred, sub) to identify the discrepancies. There is a consistent pattern of returning 0, suggesting an issue in the conversion or interpretation logic.
